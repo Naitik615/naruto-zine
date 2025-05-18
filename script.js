@@ -362,11 +362,23 @@ document.addEventListener('DOMContentLoaded', function() {
         item.addEventListener('click', function() {
             const title = this.querySelector('h3').textContent;
             const description = this.querySelector('p').textContent;
-            const imagePath = `images/arcs/${title.toLowerCase().replace(/\s+/g, '-')}.jpg`;
+            const imagePath = `images/arcs/${title.toLowerCase()
+                .replace(/[']/g, '') // Remove apostrophes
+                .replace(/\s+/g, '-') // Replace spaces with hyphens
+                .replace(/[^a-z0-9-]/g, '') // Remove any other special characters
+                }.jpg`;
             
             // Update popup content
             const popup = document.querySelector('.arc-popup');
-            popup.querySelector('.arc-popup-image').src = imagePath;
+            const popupImage = popup.querySelector('.arc-popup-image');
+            
+            // Add error handling for image loading
+            popupImage.onerror = function() {
+                console.error(`Failed to load image: ${imagePath}`);
+                this.src = 'images/placeholder.jpg'; // Fallback image
+            };
+            
+            popupImage.src = imagePath;
             popup.querySelector('.arc-popup-text h3').textContent = title;
             popup.querySelector('.arc-popup-text p').textContent = description;
             
