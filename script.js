@@ -338,3 +338,54 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 }); 
+
+
+// Remove the Akatsuki scroll code and add popup functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Create popup container
+    const popupContainer = document.createElement('div');
+    popupContainer.className = 'arc-popup';
+    popupContainer.innerHTML = `
+        <div class="arc-popup-content">
+            <span class="arc-popup-close">&times;</span>
+            <img class="arc-popup-image" src="" alt="Arc Image">
+            <div class="arc-popup-text">
+                <h3></h3>
+                <p></p>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(popupContainer);
+
+    // Add click event listeners to timeline items
+    document.querySelectorAll('.timeline-item').forEach(item => {
+        item.addEventListener('click', function() {
+            const title = this.querySelector('h3').textContent;
+            const description = this.querySelector('p').textContent;
+            const imagePath = `images/arcs/${title.toLowerCase().replace(/\s+/g, '-')}.jpg`;
+            
+            // Update popup content
+            const popup = document.querySelector('.arc-popup');
+            popup.querySelector('.arc-popup-image').src = imagePath;
+            popup.querySelector('.arc-popup-text h3').textContent = title;
+            popup.querySelector('.arc-popup-text p').textContent = description;
+            
+            // Show popup
+            popup.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    // Close popup when clicking close button or outside
+    document.querySelector('.arc-popup-close').addEventListener('click', closePopup);
+    document.querySelector('.arc-popup').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closePopup();
+        }
+    });
+
+    function closePopup() {
+        document.querySelector('.arc-popup').classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+}); 
