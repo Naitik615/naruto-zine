@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nindo Chronicles: A Naruto Shippuden Fan Zine</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Intro Overlay -->
+    <div class="intro-overlay">
+        <div class="click-to-play">
+            <span class="click-text">Click to Play</span>
+        </div>
+        <video id="introVideo" class="intro-video" playsinline>
+            <source src="images/intro-sequence.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="audio/background-music.mp3" type="audio/mpeg">
+    </audio>
+
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero" data-aos="fade-up">
+            <div class="video-background">
+                <video autoplay muted loop playsinline id="heroVideo">
+                    <source src="images/hero-video.mp4" type="video/mp4">
+                </video>
+                <div class="video-overlay"></div>
+            </div>
+            <div class="hero-content">
+                <h1>
+                    <span class="japanese">忍道年代記</span>
+                </h1>
+                <p class="subtitle">A Journey Through the Hidden Leaf Village</p>
+                <p class="hero-description">Explore the epic tale of Naruto Uzumaki, from a mischievous outcast to the hero who saved the shinobi world. Discover the bonds of friendship, the power of determination, and the true meaning of being a ninja.</p>
+            </div>
+            <div class="scroll-arrow">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </section>
+
+        <!-- Transition Space -->
+        <div class="transition-space"></div>
+
+        <!-- Journey Section -->
+        <section class="journey" data-aos="fade-up">
+            <div class="journey-video-background">
+                <video autoplay muted loop playsinline>
+                    <source src="images/journey-video.mp4" type="video/mp4">
+                </video>
+                <div class="journey-overlay"></div>
+            </div>
+            <div class="journey-content">
+                <h2>From Boy to Legend</h2>
+                <div class="journey-text" data-aos="fade-right">
+                    <p>From a lonely outcast to the hero of the Hidden Leaf Village, Naruto's journey is one of perseverance, friendship, and growth. Follow his path as he overcomes countless challenges and becomes the ninja he always dreamed of being.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meet the Shinobi -->
+        <section class="shinobi" data-aos="fade-up">
+            <h2>Meet the Shinobi</h2>
+            <div class="shinobi-grid">
+                <div class="shinobi-card" data-aos="flip-left">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="images/shinobi/naruto.jpg" alt="Naruto">
+                            <h3>Naruto Uzumaki</h3>
+                        </div>
+                        <div class="card-back">
+                            <p class="quote">"I'm not gonna run away, I never go back on my word! That's my nindo: my ninja way!"</p>
+                            <p class="bio">The main protagonist who dreams of becoming Hokage and gaining the acknowledgment of his village.</p>
+                            <audio class="voice-quote" preload="auto">
+                                <source src="audio/voices/naruto-quote.mp3" type="audio/mpeg">
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+                <div class="shinobi-card" data-aos="flip-left">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="images/shinobi/sasuke.jpg" alt="Sasuke">
+                            <h3>Sasuke Uchiha</h3>
+                        </div>
+                        <div class="card-back">
+                            <p class="quote">"I have a long way to go before I can catch up to him... I'm still weak."</p>
+                            <p class="bio">The last surviving member of the Uchiha clan, seeking power to avenge his family.</p>
+                            <audio class="voice-quote" preload="auto">
+                                <source src="audio/voices/sasuke-quote.mp3" type="audio/mpeg">
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+                <div class="shinobi-card" data-aos="flip-left">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="images/shinobi/sakura.jpg" alt="Sakura">
+                            <h3>Sakura Haruno</h3>
+                        </div>
+                        <div class="card-back">
+                            <p class="quote">"I've finally caught up to them! I'm not the weak girl I used to be!"</p>
+                            <p class="bio">A skilled medical ninja who becomes one of the strongest kunoichi in the village.</p>
+                            <audio class="voice-quote" preload="auto">
+                                <source src="audio/voices/sakura-quote.mp3" type="audio/mpeg">
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+                <div class="shinobi-card" data-aos="flip-left">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="images/shinobi/kakashi.jpg" alt="Kakashi">
+                            <h3>Kakashi Hatake</h3>
+                        </div>
+                        <div class="card-back">
+                            <p class="quote">"Those who break the rules are trash, but those who abandon their friends are worse than trash."</p>
+                            <p class="bio">The Sixth Hokage, known as the Copy Ninja with his Sharingan eye.</p>
+                            <audio class="voice-quote" preload="auto">
+                                <source src="audio/voices/kakashi-quote.mp3" type="audio/mpeg">
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+                <div class="shinobi-card" data-aos="flip-left">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="images/shinobi/itachi.jpg" alt="Itachi">
+                            <h3>Itachi Uchiha</h3>
+                        </div>
+                        <div class="card-back">
+                            <p class="quote">"People's lives don't end when they die. It ends when they lose faith."</p>
+                            <p class="bio">A prodigy of the Uchiha clan who sacrificed everything for the village's peace.</p>
+                            <audio class="voice-quote" preload="auto">
+                                <source src="audio/voices/itachi-quote.mp3" type="audio/mpeg">
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+                <div class="shinobi-card" data-aos="flip-left">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="images/shinobi/gaara.jpg" alt="Gaara">
+                            <h3>Gaara</h3>
+                        </div>
+                        <div class="card-back">
+                            <p class="quote">"I am Kazekage. I must protect this village and all the people in it."</p>
+                            <p class="bio">The Fifth Kazekage who overcame his dark past to become a beloved leader.</p>
+                            <audio class="voice-quote" preload="auto">
+                                <source src="audio/voices/gaara-quote.mp3" type="audio/mpeg">
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Akatsuki Files -->
+        <section class="akatsuki" data-aos="fade-up">
+            <h2>Akatsuki Files</h2>
+            <div class="akatsuki-intro">
+                <p>The Akatsuki, a criminal organization of S-rank missing-nin, sought to collect all the tailed beasts to achieve their ultimate goal of world peace through force.</p>
+            </div>
+            <div class="akatsuki-scroll">
+                <div class="akatsuki-member" data-aos="fade-up">
+                    <div class="member-image">
+                        <img src="images/akatsuki/itachi.jpg" alt="Itachi">
+                        <div class="member-overlay">
+                            <span class="member-rank">S-Rank</span>
+                        </div>
+                    </div>
+                    <div class="member-details">
+                        <h3>Itachi Uchiha</h3>
+                        <p class="member-info">Partner: Kisame Hoshigaki</p>
+                        <p class="member-description">A prodigy of the Uchiha clan who joined Akatsuki as a double agent to protect Konoha.</p>
+                    </div>
+                </div>
+                <div class="akatsuki-member" data-aos="fade-up">
+                    <div class="member-image">
+                        <img src="images/akatsuki/pain.jpg" alt="Pain">
+                        <div class="member-overlay">
+                            <span class="member-rank">Leader</span>
+                        </div>
+                    </div>
+                    <div class="member-details">
+                        <h3>Pain/Nagato</h3>
+                        <p class="member-info">Leader of Akatsuki</p>
+                        <p class="member-description">The mastermind behind Akatsuki, wielding the Rinnegan and the power of the Six Paths.</p>
+                    </div>
+                </div>
+                <div class="akatsuki-member" data-aos="fade-up">
+                    <div class="member-image">
+                        <img src="images/akatsuki/deidara.jpg" alt="Deidara">
+                        <div class="member-overlay">
+                            <span class="member-rank">S-Rank</span>
+                        </div>
+                    </div>
+                    <div class="member-details">
+                        <h3>Deidara</h3>
+                        <p class="member-info">Partner: Sasori</p>
+                        <p class="member-description">An artist who considers his explosive clay creations the ultimate form of art.</p>
+                    </div>
+                </div>
+                <div class="akatsuki-member" data-aos="fade-up">
+                    <div class="member-image">
+                        <img src="images/akatsuki/sasori.jpg" alt="Sasori">
+                        <div class="member-overlay">
+                            <span class="member-rank">S-Rank</span>
+                        </div>
+                    </div>
+                    <div class="member-details">
+                        <h3>Sasori</h3>
+                        <p class="member-info">Partner: Deidara</p>
+                        <p class="member-description">A master puppeteer who turned himself into a human puppet to achieve eternal beauty.</p>
+                    </div>
+                </div>
+                <div class="akatsuki-member" data-aos="fade-up">
+                    <div class="member-image">
+                        <img src="images/akatsuki/hidan.jpg" alt="Hidan">
+                        <div class="member-overlay">
+                            <span class="member-rank">S-Rank</span>
+                        </div>
+                    </div>
+                    <div class="member-details">
+                        <h3>Hidan</h3>
+                        <p class="member-info">Partner: Kakuzu</p>
+                        <p class="member-description">An immortal zealot who follows the Jashin religion and uses ritual sacrifices.</p>
+                    </div>
+                </div>
+                <div class="akatsuki-member" data-aos="fade-up">
+                    <div class="member-image">
+                        <img src="images/akatsuki/kakuzu.jpg" alt="Kakuzu">
+                        <div class="member-overlay">
+                            <span class="member-rank">S-Rank</span>
+                        </div>
+                    </div>
+                    <div class="member-details">
+                        <h3>Kakuzu</h3>
+                        <p class="member-info">Partner: Hidan</p>
+                        <p class="member-description">A bounty hunter with the ability to steal and use other ninjas' hearts.</p>
+                    </div>
+                </div>
+                <div class="akatsuki-member" data-aos="fade-up">
+                    <div class="member-image">
+                        <img src="images/akatsuki/kisame.jpg" alt="Kisame">
+                        <div class="member-overlay">
+                            <span class="member-rank">S-Rank</span>
+                        </div>
+                    </div>
+                    <div class="member-details">
+                        <h3>Kisame Hoshigaki</h3>
+                        <p class="member-info">Partner: Itachi Uchiha</p>
+                        <p class="member-description">Known as the "Monster of the Hidden Mist" and wielder of the Samehada sword.</p>
+                    </div>
+                </div>
+                <div class="akatsuki-member" data-aos="fade-up">
+                    <div class="member-image">
+                        <img src="images/akatsuki/zetsu.jpg" alt="Zetsu">
+                        <div class="member-overlay">
+                            <span class="member-rank">S-Rank</span>
+                        </div>
+                    </div>
+                    <div class="member-details">
+                        <h3>Zetsu</h3>
+                        <p class="member-info">Spy and Information Gatherer</p>
+                        <p class="member-description">A mysterious being with the ability to merge with the earth and gather intelligence.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legendary Arcs Timeline -->
+        <section class="timeline" data-aos="fade-up">
+            <h2>Legendary Arcs</h2>
+            <div class="timeline-container">
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-icon">
+                        <i class="fas fa-kunai"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Kazekage Rescue</h3>
+                        <p>The mission to save Gaara from the Akatsuki organization, marking the beginning of Naruto's growth into a true hero.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-icon">
+                        <i class="fas fa-kunai"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Sasuke Retrieval</h3>
+                        <p>Naruto's desperate attempt to bring back his friend, leading to their first major battle at the Valley of the End.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-icon">
+                        <i class="fas fa-kunai"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Pain's Assault</h3>
+                        <p>The devastating attack on Konoha by Pain, where Naruto finally gains the village's acknowledgment.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-icon">
+                        <i class="fas fa-kunai"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Fourth Ninja War</h3>
+                        <p>The greatest conflict in shinobi history, uniting all villages against Madara and the Ten-Tails.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-icon">
+                        <i class="fas fa-kunai"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Final Valley Battle</h3>
+                        <p>The ultimate showdown between Naruto and Sasuke, deciding the future of the shinobi world.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Iconic Quotes -->
+        <section class="quotes" id="quotes">
+            <div class="quotes-video-background">
+                <video autoplay muted loop playsinline>
+                    <source src="images/quotes-video.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="quotes-overlay"></div>
+            <h2>Iconic Quotes</h2>
+            <div class="quotes-grid">
+                <div class="quote-card" data-aos="fade-up">
+                    <p class="quote-text">"I'm not gonna run away, I never go back on my word! That's my nindo: my ninja way!"</p>
+                    <p class="quote-author">- Naruto Uzumaki</p>
+                </div>
+                <div class="quote-card" data-aos="fade-up" data-aos-delay="100">
+                    <p class="quote-text">"The moment people come to know love, they run the risk of carrying hate."</p>
+                    <p class="quote-author">- Obito Uchiha</p>
+                </div>
+                <div class="quote-card" data-aos="fade-up" data-aos-delay="200">
+                    <p class="quote-text">"Those who break the rules are scum, but those who abandon their friends are worse than scum."</p>
+                    <p class="quote-author">- Kakashi Hatake</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Animation Section -->
+        <section class="video-animation">
+            <div class="video-animation-container">
+                <div class="animation-left">
+                    <img id="endAnimation" src="images/end-animation.gif" alt="End Animation" class="end-animation">
+                </div>
+                <div class="animation-right">
+                    <h2>More Content Coming Soon</h2>
+                    <p>Stay tuned for more exciting content about the world of Naruto!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,14 @@
+{
+  "name": "anime-zine",
+  "version": "1.0.0",
+  "description": "Anime Zine Website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "http": "^0.0.1-security",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7"
+  }
+} 

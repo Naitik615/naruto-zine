@@ -1,0 +1,1157 @@
+/* My custom color palette */
+:root {
+    --naruto-orange: #f57c00;  /* That classic Naruto orange */
+    --leaf-green: #00e676;     /* Konoha leaf green */
+    --akatsuki-red: #d32f2f;   /* Akatsuki cloud red */
+    --dark-ninja: #0f0f0f;     /* Dark background */
+    --white: #ffffff;          /* Pure white */
+    --container-width: 1400px; /* Max width for content */
+    --smoke-gray: #2c2c2c;     /* Smoke effect color */
+    --orange-ninja: #ffa500;   /* Bright orange for buttons */
+    --red-ninja: #ff0000;      /* Red for hover effects */
+}
+
+/* Basic reset - keeping it clean */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Main body styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--dark-ninja);
+    color: var(--white);
+    line-height: 1.6;
+    min-width: 320px; /* Changed from 1200px to support mobile */
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+/* Media queries for responsive design */
+@media screen and (max-width: 768px) {
+    .hero h1 {
+        font-size: 4rem;
+    }
+    
+    .hero h1 .japanese {
+        font-size: 4rem;
+    }
+    
+    .subtitle {
+        font-size: 1.5rem;
+    }
+    
+    .hero-description {
+        font-size: 1.2rem;
+    }
+    
+    section {
+        padding: 4rem 2rem;
+    }
+    
+    .shinobi-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .akatsuki-member {
+        flex: 0 0 280px;
+    }
+}
+
+/* Hero section - the main attraction */
+.hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Cool gradient effect at the bottom */
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to bottom, transparent, var(--dark-ninja));
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Video background setup */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dark overlay for better text readability */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(15, 15, 15, 0.7), rgba(15, 15, 15, 0.7));
+    z-index: 2;
+}
+
+/* Hero content - the main text */
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: var(--container-width);
+    padding: 0 2rem;
+}
+
+/* Main title with cool effects */
+.hero h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 8rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-shadow: none;
+    letter-spacing: 2px;
+    animation: none;
+    position: relative;
+    display: inline-block;
+}
+
+/* Japanese text with gradient effect */
+.hero h1 .japanese {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 8rem;
+    display: block;
+    background: -webkit-linear-gradient(45deg, #ffd700, #ff4500);
+    background: -moz-linear-gradient(45deg, #ffd700, #ff4500);
+    background: linear-gradient(45deg, #ffd700, #ff4500);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    text-fill-color: transparent;
+    font-style: italic;
+    position: relative;
+    padding: 0.5rem 2rem;
+    animation: colorTransition 8s ease infinite;
+    text-shadow: 
+        0 0 1px rgba(255, 215, 0, 0.3),
+        0 0 2px rgba(255, 69, 0, 0.3);
+    -webkit-text-stroke: 1px rgba(255, 215, 0, 0.2);
+}
+
+/* Glowing effect for Japanese text */
+.hero h1 .japanese::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(45deg, 
+        rgba(255, 215, 0, 0.1),
+        rgba(255, 69, 0, 0.1));
+    filter: blur(8px);
+    z-index: -1;
+    animation: flameGlow 3s ease-in-out infinite alternate;
+}
+
+/* Cool animations */
+@keyframes flameGlow {
+    0% {
+        opacity: 0.3;
+        filter: blur(8px);
+    }
+    100% {
+        opacity: 0.6;
+        filter: blur(12px);
+    }
+}
+
+@keyframes colorTransition {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Subtitle and description */
+.subtitle {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #ffd700;
+    margin-bottom: 1rem;
+    text-shadow: none;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+.hero-description {
+    font-size: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #ff4500;
+    line-height: 1.8;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+/* Scroll arrow with bounce effect */
+.scroll-arrow {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: pulse 2s infinite;
+    z-index: 3;
+}
+
+.scroll-arrow i {
+    font-size: 2rem;
+    color: var(--white);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes pulse {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+    100% { transform: translateY(0); }
+}
+
+/* Section styles */
+section {
+    padding: 8rem 4rem;
+    max-width: var(--container-width);
+    margin: 0 auto;
+}
+
+section h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4rem;
+    margin-bottom: 4rem;
+    text-align: center;
+    background: linear-gradient(45deg, var(--naruto-orange), var(--akatsuki-red));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Card containers */
+.card-container, .quotes-container, .trivia-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+    padding: 2rem;
+}
+
+/* Ninja and mission cards */
+.ninja-card, .mission-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 500px;
+    transition: transform 0.3s ease;
+    border: 2px solid var(--naruto-orange);
+    margin: 1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.ninja-card:hover, .mission-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 30px var(--naruto-orange);
+}
+
+/* Card images */
+.card-image, .mission-image {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.card-image img, .mission-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    border-radius: 10px;
+}
+
+.ninja-card:hover .card-image img,
+.mission-card:hover .mission-image img {
+    transform: scale(1.1);
+}
+
+/* Card content */
+.card-content, .mission-content {
+    padding: 2rem;
+}
+
+.card-content h3, .mission-content h3 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--naruto-orange);
+}
+
+.card-content p, .mission-content p {
+    font-size: 1.2rem;
+    color: var(--white);
+    line-height: 1.8;
+}
+
+/* Quote cards */
+.quote-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 3rem;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    border: 2px solid var(--leaf-green);
+    transition: transform 0.3s ease;
+}
+
+.quote-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px var(--leaf-green);
+}
+
+.quote {
+    font-size: 2rem;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+    line-height: 1.6;
+}
+
+.author {
+    font-size: 1.5rem;
+    color: var(--leaf-green);
+}
+
+/* Trivia cards */
+.trivia-container {
+    perspective: 1000px;
+    gap: 4rem;
+}
+
+.trivia-card {
+    width: 400px;
+    height: 250px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    cursor: pointer;
+}
+
+.trivia-card:hover {
+    transform: rotateY(180deg);
+}
+
+.trivia-front, .trivia-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+}
+
+.trivia-front {
+    background: var(--naruto-orange);
+    color: var(--white);
+}
+
+.trivia-front h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.trivia-front p {
+    font-size: 1.2rem;
+}
+
+.trivia-back {
+    background: var(--akatsuki-red);
+    color: var(--white);
+    transform: rotateY(180deg);
+    font-size: 1.5rem;
+    line-height: 1.6;
+}
+
+/* Transition space */
+.transition-space {
+    height: 500px;
+    position: relative;
+    margin-top: -150px;
+    z-index: 2;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(15, 15, 15, 0.2) 25%,
+        rgba(15, 15, 15, 0.4) 50%,
+        rgba(15, 15, 15, 0.6) 75%,
+        var(--dark-ninja) 100%
+    );
+}
+
+.transition-space::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(15, 15, 15, 0.1) 50%,
+        rgba(15, 15, 15, 0.2) 100%
+    );
+    z-index: 1;
+}
+
+/* Journey section */
+.journey {
+    padding: 8rem 4rem;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -50px;
+}
+
+.journey::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(
+        to bottom,
+        var(--dark-ninja) 0%,
+        rgba(15, 15, 15, 0.98) 5%,
+        rgba(15, 15, 15, 0.95) 10%,
+        rgba(15, 15, 15, 0.9) 15%,
+        rgba(15, 15, 15, 0.85) 20%,
+        rgba(15, 15, 15, 0.8) 25%,
+        rgba(15, 15, 15, 0.75) 30%,
+        rgba(15, 15, 15, 0.7) 35%,
+        rgba(15, 15, 15, 0.65) 40%,
+        rgba(15, 15, 15, 0.6) 45%,
+        rgba(15, 15, 15, 0.55) 50%,
+        rgba(15, 15, 15, 0.5) 55%,
+        rgba(15, 15, 15, 0.45) 60%,
+        rgba(15, 15, 15, 0.4) 65%,
+        rgba(15, 15, 15, 0.35) 70%,
+        rgba(15, 15, 15, 0.3) 75%,
+        rgba(15, 15, 15, 0.25) 80%,
+        rgba(15, 15, 15, 0.2) 85%,
+        rgba(15, 15, 15, 0.15) 90%,
+        rgba(15, 15, 15, 0.1) 95%,
+        transparent 100%
+    );
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Journey video background */
+.journey-video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.journey-video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Journey overlay */
+.journey-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(15, 15, 15, 0.8), rgba(15, 15, 15, 0.8));
+    z-index: 2;
+}
+
+/* Journey content */
+.journey-content {
+    position: relative;
+    z-index: 3;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.journey h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    color: var(--naruto-orange);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.journey-text {
+    font-size: 1.5rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--white);
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid var(--naruto-orange);
+    box-shadow: 0 0 20px rgba(245, 124, 0, 0.2);
+}
+
+/* Shinobi section */
+.shinobi {
+    padding: 8rem 4rem;
+    background-color: var(--dark-ninja);
+}
+
+.shinobi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.shinobi-card {
+    height: 400px;
+    perspective: 1000px;
+    margin: 1rem;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.shinobi-card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.card-front {
+    background: var(--smoke-gray);
+    padding: 1rem;
+}
+
+.card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card-front h3 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: var(--white);
+    font-size: 1.5rem;
+}
+
+.card-back {
+    background: var(--naruto-orange);
+    transform: rotateY(180deg);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.quote {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.bio {
+    font-size: 1rem;
+}
+
+/* Akatsuki section */
+.akatsuki {
+    padding: 8rem 4rem;
+    background: linear-gradient(rgba(211, 47, 47, 0.9), rgba(211, 47, 47, 0.9)),
+                url('https://cdn.myanimelist.net/images/anime/1171/109222.jpg') center/cover fixed;
+}
+
+.akatsuki-intro {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--white);
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    border: 1px solid var(--akatsuki-red);
+}
+
+.akatsuki-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 3rem;
+    padding: 3rem 2rem;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.akatsuki-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.akatsuki-member {
+    flex: 0 0 350px;
+    scroll-snap-align: start;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid var(--akatsuki-red);
+    margin: 1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.akatsuki-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(211, 47, 47, 0.3);
+}
+
+.member-image {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    border-radius: 10px;
+}
+
+.akatsuki-member:hover .member-image img {
+    transform: scale(1.1);
+}
+
+.member-overlay {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--akatsuki-red);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.member-rank {
+    color: var(--white);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.member-details {
+    padding: 1.5rem;
+    color: var(--white);
+}
+
+.member-details h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--akatsuki-red);
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+.member-info {
+    color: var(--akatsuki-red);
+    font-size: 1rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(211, 47, 47, 0.3);
+}
+
+.member-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Timeline section */
+.timeline {
+    padding: 8rem 4rem;
+    background-color: var(--dark-ninja);
+}
+
+.timeline-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    position: relative;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: var(--naruto-orange);
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.timeline-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--naruto-orange);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 2rem;
+}
+
+.timeline-content {
+    flex: 0 0 400px;
+    background: var(--smoke-gray);
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+/* Quotes section */
+.quotes {
+    padding: 8rem 4rem;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.quotes::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(
+        to bottom,
+        var(--dark-ninja) 0%,
+        rgba(15, 15, 15, 0.98) 5%,
+        rgba(15, 15, 15, 0.95) 10%,
+        rgba(15, 15, 15, 0.9) 15%,
+        rgba(15, 15, 15, 0.85) 20%,
+        rgba(15, 15, 15, 0.8) 25%,
+        rgba(15, 15, 15, 0.75) 30%,
+        rgba(15, 15, 15, 0.7) 35%,
+        rgba(15, 15, 15, 0.65) 40%,
+        rgba(15, 15, 15, 0.6) 45%,
+        rgba(15, 15, 15, 0.55) 50%,
+        rgba(15, 15, 15, 0.5) 55%,
+        rgba(15, 15, 15, 0.45) 60%,
+        rgba(15, 15, 15, 0.4) 65%,
+        rgba(15, 15, 15, 0.35) 70%,
+        rgba(15, 15, 15, 0.3) 75%,
+        rgba(15, 15, 15, 0.25) 80%,
+        rgba(15, 15, 15, 0.2) 85%,
+        rgba(15, 15, 15, 0.15) 90%,
+        rgba(15, 15, 15, 0.1) 95%,
+        transparent 100%
+    );
+    z-index: 2;
+    pointer-events: none;
+}
+
+.quotes::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(
+        to top,
+        var(--dark-ninja) 0%,
+        rgba(15, 15, 15, 0.98) 5%,
+        rgba(15, 15, 15, 0.95) 10%,
+        rgba(15, 15, 15, 0.9) 15%,
+        rgba(15, 15, 15, 0.85) 20%,
+        rgba(15, 15, 15, 0.8) 25%,
+        rgba(15, 15, 15, 0.75) 30%,
+        rgba(15, 15, 15, 0.7) 35%,
+        rgba(15, 15, 15, 0.65) 40%,
+        rgba(15, 15, 15, 0.6) 45%,
+        rgba(15, 15, 15, 0.55) 50%,
+        rgba(15, 15, 15, 0.5) 55%,
+        rgba(15, 15, 15, 0.45) 60%,
+        rgba(15, 15, 15, 0.4) 65%,
+        rgba(15, 15, 15, 0.35) 70%,
+        rgba(15, 15, 15, 0.3) 75%,
+        rgba(15, 15, 15, 0.25) 80%,
+        rgba(15, 15, 15, 0.2) 85%,
+        rgba(15, 15, 15, 0.15) 90%,
+        rgba(15, 15, 15, 0.1) 95%,
+        transparent 100%
+    );
+    z-index: 2;
+    pointer-events: none;
+}
+
+.quotes-video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.quotes-video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.quotes-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(15, 15, 15, 0.8), rgba(15, 15, 15, 0.8));
+    z-index: 2;
+}
+
+.quotes h2 {
+    position: relative;
+    z-index: 3;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4rem;
+    margin-bottom: 4rem;
+    text-align: center;
+    background: linear-gradient(45deg, var(--naruto-orange), var(--akatsuki-red));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.quotes-grid {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: var(--container-width);
+    margin: 0 auto;
+}
+
+.quote-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid var(--leaf-green);
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quote-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px var(--leaf-green);
+}
+
+.quote-text {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+    color: var(--white);
+    line-height: 1.6;
+}
+
+.quote-author {
+    color: var(--leaf-green);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* Video animation section */
+.video-animation {
+    position: relative;
+    height: 100vh;
+    background-color: var(--dark-ninja);
+    overflow: hidden;
+}
+
+.video-animation-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease;
+    display: flex;
+    align-items: center;
+}
+
+.video-animation-container.visible {
+    opacity: 1;
+}
+
+.animation-left {
+    position: relative;
+    width: 60%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.animation-left::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+    height: 100%;
+    background: linear-gradient(to right, transparent, var(--dark-ninja));
+    z-index: 2;
+}
+
+.end-animation {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom left;
+}
+
+.animation-right {
+    width: 40%;
+    padding: 2rem;
+    color: var(--white);
+    text-align: left;
+    z-index: 3;
+}
+
+.animation-right h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(45deg, var(--naruto-orange), var(--akatsuki-red));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.animation-right p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: var(--white);
+    opacity: 0.9;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(45deg, var(--naruto-orange), var(--akatsuki-red));
+    padding: 2rem;
+    text-align: center;
+    position: sticky;
+    bottom: 0;
+    z-index: 100;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    max-width: var(--container-width);
+    margin: 0 auto;
+}
+
+.leaf-symbol {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.leaf-symbol:hover {
+    transform: rotate(360deg);
+}
+
+footer p {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* Intro overlay */
+.intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease-out, visibility 1s ease-out;
+    cursor: pointer;
+}
+
+.intro-overlay.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.intro-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.intro-video.visible {
+    opacity: 1;
+}
+
+.click-to-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+}
+
+.click-text {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 2rem;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    animation: pulse 2s infinite;
+}
+
+/* Main content visibility */
+.main-content {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+.main-content.visible {
+    opacity: 1;
+}
+
+/* Voice quote */
+.voice-quote {
+    display: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
+/* Add loading indicator styles */
+.loading-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--dark-ninja);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--naruto-orange);
+    border-top: 5px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Add fallback styles for browsers that don't support backdrop-filter */
+@supports not (backdrop-filter: blur(5px)) {
+    .quote-card {
+        background: rgba(0, 0, 0, 0.8);
+    }
+} 
