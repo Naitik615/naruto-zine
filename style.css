@@ -770,6 +770,12 @@ section h2 {
     justify-content: center;
     align-items: center;
     margin-bottom: 4rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.timeline-item:hover {
+    transform: translateY(-5px);
 }
 
 .timeline-icon {
@@ -1151,4 +1157,81 @@ footer p {
     .quote-card {
         background: rgba(0, 0, 0, 0.8);
     }
+} 
+
+.arc-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.arc-popup.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.arc-popup-content {
+    background: var(--dark-ninja);
+    width: 90%;
+    max-width: 800px;
+    border-radius: 15px;
+    padding: 2rem;
+    position: relative;
+    border: 2px solid var(--naruto-orange);
+    box-shadow: 0 0 30px rgba(245, 124, 0, 0.3);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.arc-popup.active .arc-popup-content {
+    transform: scale(1);
+}
+
+.arc-popup-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    color: var(--white);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.arc-popup-close:hover {
+    color: var(--naruto-orange);
+}
+
+.arc-popup-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.arc-popup-text {
+    color: var(--white);
+}
+
+.arc-popup-text h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--naruto-orange);
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+.arc-popup-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--white);
 } 
